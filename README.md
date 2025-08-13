@@ -38,6 +38,6 @@ The dataset was preprocessed to handle missing values, outliers, and categorical
 ---
 
 ## 📂 Repository Structure
-├── liver_cirrhosis_dnn.ipynb # Jupyter Notebook with full implementation
-├── README.md # Project documentation
-└── data/ # Dataset (if included)
+-├── liver_cirrhosis_dnn.ipynb # Jupyter Notebook with full implementation
+-├── README.md # Project documentation
+-└── data/ # Dataset (if included)
