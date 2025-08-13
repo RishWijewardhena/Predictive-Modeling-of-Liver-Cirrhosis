@@ -1,26 +1,40 @@
-# Liver Cirrhosis Prediction – Machine Learning Models
+# Liver Cirrhosis Outcome Prediction – Deep Neural Network
 
-This project implements multiple machine learning models to predict liver cirrhosis patient outcomes based on clinical data.  
-The workflow covers **data preprocessing**, **model training**, **hyperparameter tuning**, and **evaluation**.
-
----
-
-## 📊 Dataset Preprocessing
-
-- Removed duplicates and cleaned string columns.
-- Converted categorical features into numerical form.
-- Removed outliers using the **IQR method**.
-- Normalized/standardized relevant numerical features.
+This project implements a **Deep Neural Network (DNN)** model to predict the prognosis of liver cirrhosis patients using clinical and biochemical data.  
+The dataset was preprocessed to handle missing values, outliers, and categorical encoding before training the model.
 
 ---
 
-## 🧠 Models Implemented
+## 📊 Data Preprocessing
+- **Removed duplicates** and cleaned text data.
+- **Handled missing values**:
+  - Numerical columns → replaced with mean.
+  - Categorical columns → replaced with mode.
+- **Outlier removal** using the IQR method.
+- **One-hot encoding** for categorical variables.
+- **Standardization** of features using `StandardScaler`.
+- Performed **80/20 train-test split** with stratification.
 
-### 1. **XGBoost Classifier**
-- Gradient boosting model optimized for structured tabular data.
-- Tuned parameters with **Grid Search**.
-- Key steps:
-  ```python
-  from xgboost import XGBClassifier
-  model = XGBClassifier(eval_metric='mlogloss')
-  model.fit(X_train, y_train)
+---
+
+## 🧠 Model – Deep Neural Network
+- Implemented using **Keras** with TensorFlow backend.
+- Architecture:
+  - Input layer matching number of features.
+  - Multiple hidden layers with **ReLU activation**.
+  - **Dropout** layers for regularization.
+  - Output layer with **softmax activation** for multi-class classification.
+- Optimized with **Adam** optimizer.
+- Used **categorical crossentropy** as the loss function.
+- **Early Stopping** to prevent overfitting.
+
+---
+
+## 📈 Model Performance
+- **Accuracy:** ~92%
+- **Weighted F1-score:** ~0.92
+- Model showed balanced performance across all classes despite class imbalance.
+
+---
+
+## 📂 Repository Structure
